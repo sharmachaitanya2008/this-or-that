@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena - Design Duel Championship</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/arena.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-label="Design image preview" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close preview">&times;</button>
+        <img class="lightbox-image" src="" alt="">
+    </div>
+
+    <div class="content-wrapper">
+        <header class="arena-header" role="banner">
+            <div class="arena-header-left">
+                <h1 class="arena-title" aria-label="Design Duel Championship">
+                    🏆 Design Duel
+                </h1>
+            </div>
+            <div class="arena-header-center">
+                <img class="team-logo" src="/images/team-logo.png" alt="Powered by ABCD EFGHIJKL">
+            </div>
+            <div class="arena-header-right" role="status" aria-live="polite">
+                <div class="arena-stat">
+                    Judge: <span id="judgeName">—</span>
+                </div>
+                <div class="arena-stat">
+                    Votes: <span id="votesCast">0</span>
+                </div>
+                <div class="arena-stat">
+                    Progress: <span id="progressPercent">0%</span>
+                </div>
+                <a href="/leaderboard.html" class="arena-link" aria-label="View Hall of Champions">
+                    🏆 Champions
+                </a>
+                <a href="#" class="arena-link arena-logout" aria-label="Logout" onclick="localStorage.removeItem('jwt_token'); localStorage.removeItem('judge_username'); localStorage.removeItem('judge_id'); window.location.href='/'; return false;">
+                    ✦ Logout
+                </a>
+            </div>
+        </header>
+
+        <main class="arena-main" role="main">
+            <div id="completionScreen" class="completion-screen" role="status">
+                <div class="completion-icon" aria-hidden="true">🏆</div>
+                <h2 class="completion-title">Judging Complete</h2>
+                <p class="completion-subtitle">Thank you for participating. The Chamber of Design honors your wisdom.</p>
+                <a href="/leaderboard.html" class="vote-btn" style="width:auto; margin-top:24px; text-decoration:none; display:inline-block; padding:14px 40px;">
+                    View Final Results
+                </a>
+            </div>
+
+            <div id="duelContainer" class="duel-container" role="region" aria-label="Design comparison arena">
+                <div id="championCard" class="design-card animate-slide-up" role="article" aria-label="Champion design">
+                    <div class="design-card-image-wrapper">
+                        <img class="design-card-image loading" alt="" loading="lazy">
+                        <div class="sparkle-container" id="championSparkles"></div>
+                    </div>
+                    <div class="design-card-body">
+                        <h2 class="design-card-title" id="championTitle"></h2>
+                        <p class="design-card-description" id="championDescription"></p>
+                        <button class="vote-btn" id="voteChampion" aria-label="Select champion design">
+                            ⚡ Choose This Design
+                        </button>
+                    </div>
+                </div>
+
+                <div class="duel-vs" aria-hidden="true">VS</div>
+
+                <div id="challengerCard" class="design-card animate-slide-up" role="article" aria-label="Challenger design">
+                    <div class="design-card-image-wrapper">
+                        <img class="design-card-image loading" alt="" loading="lazy">
+                        <div class="sparkle-container" id="challengerSparkles"></div>
+                    </div>
+                    <div class="design-card-body">
+                        <h2 class="design-card-title" id="challengerTitle"></h2>
+                        <p class="design-card-description" id="challengerDescription"></p>
+                        <button class="vote-btn" id="voteChallenger" aria-label="Select challenger design">
+                            ⚡ Choose This Design
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification" class="notification" role="alert" aria-live="assertive"></div>
+
+    <script src="js/particles.js"></script>
+    <script src="js/sparkle-cursor.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/arena.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall of Champions - Design Duel</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="content-wrapper">
+        <header class="leaderboard-header" role="banner">
+            <div class="leaderboard-header-left">
+                <h1 class="leaderboard-title" aria-label="Hall of Champions">
+                    🏆 Design Duel
+                </h1>
+            </div>
+            <div class="leaderboard-header-center">
+                <img class="team-logo" src="/images/team-logo.png" alt="Powered by ABCD EFGHIJKL">
+            </div>
+            <div style="display:flex; gap:8px;">
+                <a href="/arena.html" class="leaderboard-back-btn" aria-label="Back to arena">
+                    ← Back to Arena
+                </a>
+                <a href="#" class="leaderboard-back-btn" aria-label="Logout" onclick="localStorage.removeItem('jwt_token'); localStorage.removeItem('judge_username'); localStorage.removeItem('judge_id'); window.location.href='/'; return false;">
+                    ✦ Logout
+                </a>
+            </div>
+        </header>
+
+        <main class="leaderboard-main" role="main">
+            <div id="leaderboardContent">
+                <div class="leaderboard-empty">
+                    <span class="leaderboard-empty-icon" aria-hidden="true">📜</span>
+                    <p>No votes have been cast yet. The scroll of champions awaits its first entries...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/particles.js"></script>
+    <script src="js/sparkle-cursor.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>

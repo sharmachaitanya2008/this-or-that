@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Duel Championship</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <div class="login-page">
+        <div class="login-card" role="main" aria-label="Login form">
+            <span class="login-emblem" aria-hidden="true">🏆</span>
+            <h1 class="login-title">Design Duel</h1>
+            <p class="login-subtitle">Championship Arena</p>
+            <div class="login-divider" aria-hidden="true"></div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="username" class="form-label">Judge Name</label>
+                    <input
+                        type="text"
+                        id="username"
+                        class="form-input"
+                        placeholder="Enter your name..."
+                        autocomplete="off"
+                        aria-describedby="loginError"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="loginBtn" class="login-btn">
+                    Begin Judging
+                </button>
+
+                <div id="loginError" class="login-error" role="alert"></div>
+            </form>
+
+            <img class="team-logo" src="/images/team-logo.png" alt="Powered by ABCD EFGHIJKL">
+        </div>
+        <p class="login-footer">The Chamber of Design awaits your verdict</p>
+    </div>
+
+    <script src="js/particles.js"></script>
+    <script src="js/sparkle-cursor.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
